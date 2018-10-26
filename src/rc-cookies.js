@@ -59,6 +59,9 @@
                             if (angular.isObject(value) && angular.isObject(fields)) {
                                 angular.extend(fields, value);
                             }
+                            else if (!value) {
+                                fields = scope.$eval(attrs.rcCookieInit);
+                            }
                             else {
                                 fields = value;
                             }
