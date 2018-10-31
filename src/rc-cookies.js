@@ -56,7 +56,11 @@
                             //Get fields form
                             var fields = scope.$eval(attrs.rcCookieFields);
 
-                            if (angular.isObject(value) && angular.isObject(fields)) {
+                            if (!angular.isObject(fields)) {
+                              return;
+                            }
+
+                            if (angular.isObject(value)) {
                                 angular.extend(fields, value);
                             }
                             else if (!value) {
